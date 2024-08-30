@@ -9,21 +9,21 @@ count_calls()
 string = 'capybara'
 def string_info(string):
     a = len(string), string.upper(), string.lower()
-    print(a)
+    return a
 
-string_info(string)
 count_calls()
+print(string_info(string))
 
-string = 'armageddon'
+name = 'Armageddon'
 list_to_search = [1, 2, 3]
-def is_contains(string, list_to_search):
-    b = len(string), string.upper(), string.lower()
-    print(b)
-    count_calls()
+def is_contains(name, list_to_search):
+    b = len(name), name.upper(), name.lower()
+    return b
 
-    print('armageddon' in string)
-    print('armageddon' in list_to_search)
+count_calls()
+print(is_contains(name, list_to_search))
 
-is_contains(string, list_to_search)
+print(isinstance(name, str))
+print(isinstance(list_to_search, str))
 count_calls()
 print(calls)
