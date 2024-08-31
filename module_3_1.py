@@ -4,26 +4,27 @@ def count_calls():
     global calls
     calls += 1
 
-count_calls()
-
-string = 'capybara'
 def string_info(string):
     a = len(string), string.upper(), string.lower()
+    count_calls()
     return a
 
-count_calls()
-print(string_info(string))
+def is_contains(string, list_to_search):
+    string = str(string).lower()
+    list_to_search = list(list_to_search)
+    count_calls()
+    for i in range(len(list_to_search)):
+        if str(list_to_search[i]).lower() == string:
+            result = True
+            break
+        else:
+            result = False
+            continue
+    return result
 
-name = 'Armageddon'
-list_to_search = [1, 2, 3]
-def is_contains(name, list_to_search):
-    b = len(name), name.upper(), name.lower()
-    return b
+print(string_info('Capybara'))
+print(string_info('Armageddon'))
+print(is_contains('cat', ['apple', 'door', 'glass'])) # No matches
+print(is_contains('UrBAn', ['Urban', 'urBAN', 'URBAN', 'uRban'])) # Urban ~ urBAN
 
-count_calls()
-print(is_contains(name, list_to_search))
-
-print(isinstance(name, str))
-print(isinstance(list_to_search, str))
-count_calls()
 print(calls)
